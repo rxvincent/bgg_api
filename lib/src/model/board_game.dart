@@ -1,4 +1,5 @@
 import 'video.dart';
+import 'board_game_version.dart';
 
 class BoardGame {
   final int? id;
@@ -15,7 +16,8 @@ class BoardGame {
   final Uri? image;
   final List<Video> videos;
   final List<String> names;
-
+  final List<BoardGameVersion> versions;
+  
   BoardGame({
     required this.id,
     required this.name,
@@ -31,6 +33,7 @@ class BoardGame {
     required this.image,
     this.videos = const [],
     this.names = const [],
+    this.versions = const [],
   });
 
   @override

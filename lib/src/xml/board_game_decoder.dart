@@ -1,4 +1,5 @@
 import 'package:bgg_api/src/xml/video_decoder.dart';
+import 'package:bgg_api/src/xml/board_game_version_decoder.dart';
 import 'package:xml/xml.dart';
 
 import '../model/board_game.dart';
@@ -8,6 +9,7 @@ class BoardGameDecoder extends XmlDecoder<BoardGame> {
   const BoardGameDecoder();
 
   final VideoDecoder videoDecoder = const VideoDecoder();
+  final BoardGameVersionDecoder versionDecoder = const BoardGameVersionDecoder();
 
   @override
   BoardGame decode(XmlNode xml) {
@@ -26,6 +28,7 @@ class BoardGameDecoder extends XmlDecoder<BoardGame> {
       image: readUri(xml, 'image'),
       videos: findElements(getElement(xml, 'videos'), 'video').map((e) => videoDecoder.decode(e)).toList(),
       names: findElements(xml, 'name').map((e) => e.getAttribute('value')).whereType<String>().toList(),
+      versions: findElements(getElement(xml, 'versions'), 'item').map((e) => versionDecoder.decode(e)).toList(),
     );
   }
 }

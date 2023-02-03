@@ -32,7 +32,7 @@ class Bgg {
   /// Retrieve information about a particular board game by [gameId].
   Future<BoardGame?> getBoardGame(int gameId) async {
     return _getFirstElement(['thing'], const BoardGameDecoder(),
-        ThingParameters(id: [gameId], type: [ThingType.boardgame, ThingType.boardgameexpansion]));
+        ThingParameters(id: [gameId], versions: true,type: [ThingType.boardgame, ThingType.boardgameexpansion]));
   }
 
   /// Retrieve information about a particular thing.
