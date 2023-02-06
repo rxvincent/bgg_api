@@ -10,6 +10,7 @@ class BoardGameVersionDecoder extends XmlDecoder<BoardGameVersion> {
   BoardGameVersion decode(XmlNode xml) {
     return BoardGameVersion(
       id: readId(xml),
+      yearPublished: readIntValue(xml, 'yearpublished'),
       versionName: readStringValueWithAttribute(xml, 'name', 'type', 'primary'),
       thumbnail : readUri(xml, 'thumbnail'),
       image: readUri(xml, 'image'),
