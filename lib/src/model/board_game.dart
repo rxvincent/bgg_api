@@ -1,5 +1,7 @@
 import 'video.dart';
 import 'board_game_version.dart';
+import 'link_ref.dart';
+import 'stats.dart';
 
 class BoardGame {
   final int? id;
@@ -17,6 +19,16 @@ class BoardGame {
   final List<Video> videos;
   final List<String> names;
   final List<BoardGameVersion> versions;
+  final List<LinkRef> category;
+  final List<LinkRef> mechanic;
+  final List<LinkRef> family;
+  final List<LinkRef> expansion;
+  final List<LinkRef> intergration;
+  final List<LinkRef> compilation;
+  final List<LinkRef> designer;
+  final List<LinkRef> artist;
+  final List<LinkRef> publisher;
+  final Stats? stats;
   
   BoardGame({
     required this.id,
@@ -31,9 +43,19 @@ class BoardGame {
     required this.minAge,
     required this.thumbnail,
     required this.image,
+    this.stats,
     this.videos = const [],
     this.names = const [],
     this.versions = const [],
+    this.category = const [],
+    this.mechanic = const [],
+    this.family = const [],
+    this.expansion = const [],
+    this.intergration = const [],
+    this.compilation = const [],
+    this.designer = const [],
+    this.artist = const [],
+    this.publisher = const [],
   });
 
   @override

@@ -24,6 +24,12 @@ abstract class XmlDecoder<T> {
   }
 
   @protected
+  double? readDoubleValue(XmlNode xml, String path) {
+    var value = readStringValue(xml, path);
+    return value != null ? double.tryParse(value) : null;
+  }
+
+  @protected
   String? readStringUnescaped(XmlNode xml, String path) {
     var string = readString(xml, path);
     return string != null ? HtmlUnescape().convert(string) : null;
